@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 2.8) 
+project( interrupt ) 
+find_package( OpenCV REQUIRED )
+SET( CMAKE_CXX_FLAGS "-std=c++11 -O3")
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+include_directories( /usr/include ) 
+add_executable( interrupt gpioback.cpp )
+target_link_libraries( interrupt ${OpenCV_LIBS}  mraa pthread)
